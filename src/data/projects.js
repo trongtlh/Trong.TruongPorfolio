@@ -1,6 +1,38 @@
 export const projects = [
-  { slug: 'subsurface-workspace', name: 'Subsurface Workspace', visual: 'workspace', category: 'Web & desktop application', stack: 'Vue · Theia · Electron',
-    summary: 'Document exploration, tab workflows and integration between a Vue interface and a desktop workbench.',
+  { slug: 'subsurface-workspace', name: 'Subsurface Workspace', productName: 'i2g-subsurface-studio', visual: 'workspace', category: 'Web & desktop application', stack: 'Vue 3 · TypeScript · Eclipse Theia · Electron · OSDU',
+    summary: 'Bringing subsurface data and tools into a shared desktop workspace.',
+    contributionSummary: 'Application development · Platform research · API integration',
+    sections: [
+      { label: 'WORKFLOW', title: 'From data discovery to working views', paragraphs: [
+        'Subsurface information spans assets, records and files. A user exploring a well may need to inspect its metadata, open a report and review associated well-log or seismic data.',
+        'The Studio brings these activities into a shared application. Its explorer provides a starting point for navigating assets and related records, while tabs and split panels let users keep several documents or tools in view.',
+        'My work focuses on connecting these interactions: how a selected record leads to its content, which viewer opens it and how that view behaves within the workspace.'
+      ] },
+      { label: 'OSDU INTEGRATION', title: 'Connecting the application to OSDU', paragraphs: [
+        'The OSDU integration required understanding how records describe subsurface assets, how relationships connect them and how associated files are retrieved.',
+        'I researched these concepts and worked with Search, Storage and file-related APIs to support data exploration and document access. This also involved authentication flows and the relationship between the application session and backend requests.',
+        'That work connects the data platform to practical interface behavior: finding a record, showing its details and opening the information attached to it.'
+      ], figures: [
+        { src: '/image/image5.jpg', alt: 'OSDU data platform software components, including applications, domain APIs, platform APIs and core platform services', caption: 'OSDU data platform components and API layers' }
+      ] },
+      { label: 'DESKTOP WORKSPACE', title: 'Integrating tools into the desktop workspace', paragraphs: [
+        'A key part of the project is determining how individual interfaces and functions fit into the application.',
+        'I explored Theia’s architecture and integration mechanisms alongside the existing Vue codebase. The approach keeps business interfaces and viewers in Vue, with Theia responsible for document tabs, split layouts and related workspace behavior. Electron provides the desktop shell.',
+        'My implementation work includes preview and persistent tabs, focusing an already-open document and coordinating views across panels. These interactions help users move between records while keeping relevant documents available.'
+      ], figures: [
+        { src: '/image/image4.png', alt: 'Eclipse Theia workbench containing a custom widget and custom HTML user interface', caption: 'A custom UI hosted as a widget in the Eclipse Theia workbench' },
+        { src: '/image/extensiontypes.svg', alt: 'Diagram connecting VS Code APIs, Theia plugin APIs and custom extension types with the Eclipse Theia workbench', caption: 'Extension and plugin integration points around Eclipse Theia' }
+      ] },
+      { label: 'PLATFORM EVOLUTION', title: 'Managing change in the underlying platform', paragraphs: [
+        'The application also needs to evolve with its framework dependencies.',
+        'I reviewed Theia and Electron releases to understand how version changes affect custom integrations, build tooling and existing application code. This research helps identify where an upgrade requires adaptation and which workflows need verification.',
+        'The goal is to make upgrades manageable: understand the changes, contain their impact and preserve the behavior users already rely on.'
+      ] },
+      { label: 'MY CONTRIBUTION', title: 'Contributing across the project', paragraphs: [
+        'My work spans the connection between platform capabilities and everyday application behavior, from understanding OSDU records to integrating viewers and refining document workflows.',
+        'Alongside feature development, I contribute the technical investigation needed to make integration and maintenance decisions. This combination of research and implementation is central to my role in i2g-subsurface-studio.'
+      ] }
+    ],
     challenge: 'Technical data and documents often live across several views. The interface needs to help people navigate this information without losing their working context.',
     contribution: ['Building Vue interfaces for data and document exploration.', 'Working on preview tabs, persistent tabs and multi-panel document workflows.', 'Integrating APIs and authentication flows with a desktop application.'],
     decision: 'Keep the business interface in Vue and give the workbench a focused responsibility: document tabs, splits and workspace behavior.',
