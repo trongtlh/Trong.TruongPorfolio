@@ -17,11 +17,22 @@ watchEffect(() => { document.title = `${project.value?.name || 'Project not foun
 			<ProjectVisual :type="project.visual" />
 			<p class="caption">{{ project.productName || 'Concept illustration' }} · {{ project.stack }}</p>
 		</div>
+		<div v-if="project.projectType || project.githubUrl" class="container project-links">
+			<p v-if="project.projectType" class="project-meta">{{ project.projectType }} · Team size: {{ project.teamSize }} · Focus: {{ project.focus }}</p>
+			<a v-if="project.githubUrl" class="text-link" :href="project.githubUrl" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+		</div>
 
 		<section v-if="project.sections" class="container project-facts">
+			<template v-if="project.facts">
+				<div v-for="fact in project.facts" :key="fact.label">
+					<p class="eyebrow accent">{{ fact.label }}</p>
+					<p>{{ fact.value }}</p>
+				</div>
+			</template>
+			<template v-else>
 			<div>
 				<p class="eyebrow accent">PROJECT</p>
-				<h2>{{ project.productName }}</h2>
+				<h2>{{ project.productName || project.name }}</h2>
 			</div>
 			<div>
 				<p class="eyebrow accent">MY CONTRIBUTION</p>
@@ -31,6 +42,7 @@ watchEffect(() => { document.title = `${project.value?.name || 'Project not foun
 				<p class="eyebrow accent">CORE TECHNOLOGIES</p>
 				<p>{{ project.stack }}</p>
 			</div>
+			</template>
 		</section>
 
 		<section v-if="project.sections" class="section container case-study rich-case-study">
@@ -64,10 +76,19 @@ watchEffect(() => { document.title = `${project.value?.name || 'Project not foun
 <style scoped>
 .project-facts {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
 	gap: 32px;
 	padding-block: 32px;
 	border-block: 1px solid var(--line);
+}
+
+.project-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 24px;
+	margin-top: 20px;
 }
 
 .project-facts h2 {
