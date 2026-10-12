@@ -1,0 +1,1 @@
+<template><section class="container section not-found"><p class="eyebrow accent">404 / PAGE NOT FOUND</p><h1>This page took<br>a different route.</h1><p>The link may be incorrect, or the page may have moved.</p><RouterLink class="button" to="/">Back home ↗</RouterLink></section></template>
