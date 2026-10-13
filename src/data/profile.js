@@ -1,6 +1,6 @@
 // Edit these values before publishing. Empty links are not rendered as broken links.
 export const profile = {
-  name: 'Trọng', role: 'Web & Desktop Developer', location: 'Vietnam',
+  name: 'Trọng', role: 'Web & Desktop Developer',
   email: 'trongtlh93@gmail.com', 
   github: 'https://github.com/trongtlh', 
   linkedin: 'https://www.linkedin.com/in/trongtlh/', 
