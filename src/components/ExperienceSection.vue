@@ -18,9 +18,15 @@ const experiences = [
     url: 'https://sisvietnam.vn/',
     role: 'Software Implementation Consultant',
     type: 'Full-time',
-    period: 'Oct 2025 – Feb 2026',
-    description:
+    period: 'Oct 2025 – Feb 2026 · 5 mos',
+    location: 'Ho Chi Minh City, Vietnam · On-site',
+    responsibilities: [
       'Supported software implementation, including system configuration, deployment, testing and troubleshooting.',
+      'Collaborated with technical teams to identify issues, analyze root causes and implement solutions.',
+      'Conducted functional testing to ensure software features aligned with business requirements.',
+      'Prepared technical documentation and provided end-user support during software implementation.',
+      'Assisted with system maintenance, issue resolution and continuous improvement.',
+    ],
     skills:
       'System configuration · Software deployment · Testing · Troubleshooting',
   },
@@ -109,10 +115,19 @@ const principles = [
         </h3>
         <p class="muted">{{ experience.period }}</p>
         <p class="muted">{{ experience.type }}</p>
+        <p v-if="experience.location" class="muted">{{ experience.location }}</p>
       </div>
 
       <div>
         <h3>{{ experience.role }}</h3>
+        <ul v-if="experience.responsibilities" class="responsibilities">
+          <li
+            v-for="responsibility in experience.responsibilities"
+            :key="responsibility"
+          >
+            {{ responsibility }}
+          </li>
+        </ul>
         <p v-if="experience.description" class="muted">
           {{ experience.description }}
         </p>
@@ -182,5 +197,24 @@ const principles = [
   display: inline-block;
   margin-left: 4px;
   font-size: 0.85em;
+}
+
+.responsibilities {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.responsibilities li {
+  position: relative;
+  padding-left: 1em;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.responsibilities li::before {
+  position: absolute;
+  left: 0;
+  content: '–';
 }
 </style>
