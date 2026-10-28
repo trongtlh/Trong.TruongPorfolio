@@ -1,18 +1,26 @@
 <script setup>
 import ProjectVisual from './ProjectVisual.vue'
-defineProps({ project: Object })
+defineProps({ project: Object, index: Number })
 </script>
 <template>
 	<RouterLink class="project-card" :to="`/projects/${project.slug}`">
-		<ProjectVisual :type="project.visual" />
-		<div class="project-title"><h3>{{ project.name }}</h3><span aria-hidden="true">↗</span></div>
-		<template v-if="project.company">
-			<p class="project-meta">Company: {{ project.company }} · Team size: {{ project.teamSize }}</p>
-			<p class="project-meta">Focus: {{ project.focus }}</p>
+		<div class="project-card-visual">
+			<ProjectVisual :type="project.visual" />
+			<span class="project-card-number">0{{ index + 1 }}</span>
+			<span class="project-card-arrow" aria-hidden="true">↗</span>
+		</div>
+		<div class="project-card-content">
+			<div class="project-card-kicker">
+				<span>{{ project.category }}</span>
+				<span v-if="project.teamSize">Team · {{ project.teamSize }}</span>
+			</div>
+			<div class="project-title"><h3>{{ project.name }}</h3><span aria-hidden="true">↗</span></div>
 			<p class="project-summary">{{ project.summary }}</p>
-			<p class="project-meta">{{ project.keyAreas ? 'Key areas' : 'Technologies' }}: {{ project.keyAreas || project.stack }}</p>
-		</template>
-		<p v-else class="project-meta">{{ project.category }} / {{ project.stack }}</p>
+			<div v-if="project.stack" class="project-tags" aria-label="Technologies">
+				<span v-for="technology in project.stack.split(' · ')" :key="technology">{{ technology }}</span>
+			</div>
+			<p v-if="project.focus" class="project-focus"><span>MY FOCUS</span>{{ project.focus }}</p>
+		</div>
 	</RouterLink>
 </template>
 
@@ -50,6 +58,10 @@ defineProps({ project: Object })
 .project-summary {
 	margin-top: 10px;
 	color: var(--muted);
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
 }
 
 @media (max-width: 800px) {

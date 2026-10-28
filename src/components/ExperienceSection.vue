@@ -92,7 +92,7 @@ const principles = [
     </div>
   </div>
 
-  <section class="section container">
+  <section v-reveal class="section container">
     <h2>Experience through real projects</h2>
 
     <div
@@ -136,7 +136,7 @@ const principles = [
     </div>
   </section>
 
-  <section class="section container">
+  <section v-reveal class="section container">
     <h2>Education</h2>
 
     <div class="experience-row">
@@ -165,7 +165,7 @@ const principles = [
     </div>
   </section>
 
-  <section class="section soft-band">
+  <section v-reveal class="section soft-band">
     <div class="container">
       <h2>How I like to work</h2>
 
