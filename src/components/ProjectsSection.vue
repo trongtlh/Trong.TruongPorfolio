@@ -7,41 +7,24 @@ import ProjectVisual from './ProjectVisual.vue'
 import { projects } from '../data/projects'
 import { experiences } from '../data/experience'
 const taskflow = projects.find(project => project.slug === 'taskflow')
-const jobProjects = projects.filter(project => project.projectGroup === 'Job Experience')
+const professionalProjects = projects.filter(project => project.projectGroup === 'Professional Projects')
 const essExperience = experiences.find(experience => experience.company === 'ESS')
-const hospitalExperience = experiences.find(experience => experience.company === 'Can Tho Stroke International Services')
 </script>
 <template>
 <div v-if="home" v-reveal class="container home-section-heading" id="projects"><div class="section-heading"><h2>Selected work</h2><RouterLink class="text-link" to="/projects">Explore projects ↗</RouterLink></div></div>
 <section v-reveal class="section container projects-section">
-	<section class="project-group" aria-labelledby="job-experience-heading">
-		<div class="section-heading"><h2 id="job-experience-heading">Job Experience</h2></div>
+	<section class="project-group" aria-labelledby="professional-projects-heading">
+		<div class="section-heading"><h2 id="professional-projects-heading">Professional Projects</h2></div>
 		<div class="company-project-group">
 			<div class="company-project-heading">
 				<div>
-					<p class="eyebrow accent">COMPANY PROJECTS</p>
+					<p class="eyebrow accent">PROJECTS AT</p>
 					<h3>ESS</h3>
 				</div>
 				<p v-if="essExperience" class="project-meta">{{ essExperience.role }} · {{ essExperience.period }}</p>
 			</div>
-			<div class="project-grid"><ProjectCard v-for="(project, index) in jobProjects" :project="project" :index="index" :key="project.slug"/></div>
+			<div class="project-grid"><ProjectCard v-for="(project, index) in professionalProjects" :project="project" :index="index" :key="project.slug"/></div>
 		</div>
-		<article v-if="!home && hospitalExperience" class="hospital-experience">
-			<div class="hospital-experience-heading">
-				<p class="eyebrow accent">EMPLOYMENT</p>
-				<p class="project-meta">{{ hospitalExperience.period }} · {{ hospitalExperience.type }}</p>
-			</div>
-			<div class="hospital-experience-copy">
-				<a :href="hospitalExperience.url" target="_blank" rel="noopener noreferrer">
-					{{ hospitalExperience.company }} <span aria-hidden="true">↗</span>
-				</a>
-				<h3>{{ hospitalExperience.role }}</h3>
-				<ul class="responsibilities">
-					<li v-for="responsibility in hospitalExperience.responsibilities" :key="responsibility">{{ responsibility }}</li>
-				</ul>
-				<p class="project-meta">{{ hospitalExperience.skills }}</p>
-			</div>
-		</article>
 	</section>
 	<section class="project-group personal-projects" aria-labelledby="personal-projects-heading">
 		<div class="section-heading"><h2 id="personal-projects-heading">Personal Projects</h2></div>
@@ -102,71 +85,6 @@ const hospitalExperience = experiences.find(experience => experience.company ===
 	text-align: right;
 }
 
-.hospital-experience {
-	display: grid;
-	grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr);
-	gap: 36px;
-	margin-top: 28px;
-	padding: 28px;
-	border: 1px solid var(--line);
-	border-radius: 18px;
-	background: linear-gradient(145deg,#fff,#faf9fd);
-}
-
-.hospital-experience-heading {
-	display: grid;
-	align-content: start;
-	gap: 10px;
-}
-
-.hospital-experience-copy > a {
-	font-size: 19px;
-	font-weight: 700;
-}
-
-.hospital-experience-copy > a:hover {
-	color: var(--accent);
-}
-
-.hospital-experience-copy > a span {
-	color: var(--accent);
-	font-size: 14px;
-}
-
-.hospital-experience-copy h3 {
-	margin-block: 8px 16px;
-	font-size: 16px;
-	font-weight: 500;
-	color: var(--muted);
-}
-
-.responsibilities {
-	display: grid;
-	gap: 10px;
-	margin: 0 0 18px;
-	padding: 0;
-	list-style: none;
-}
-
-.responsibilities li {
-	position: relative;
-	padding-left: 18px;
-	color: var(--muted);
-	font-size: 14px;
-	line-height: 1.6;
-}
-
-.responsibilities li::before {
-	position: absolute;
-	top: .7em;
-	left: 0;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: var(--accent);
-	content: '';
-}
-
 .taskflow-feature-copy {
 	min-width: 0;
 }
@@ -214,12 +132,6 @@ const hospitalExperience = experiences.find(experience => experience.company ===
 @media (max-width: 800px) {
 	.project-group + .project-group {
 		margin-top: 48px;
-	}
-
-	.hospital-experience {
-		grid-template-columns: 1fr;
-		gap: 18px;
-		padding: 22px;
 	}
 
 	.company-project-group {

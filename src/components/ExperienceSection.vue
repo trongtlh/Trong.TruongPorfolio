@@ -35,7 +35,7 @@ const principles = [
     class="container home-section-heading"
   >
     <div class="section-heading">
-      <h2>Experience & education</h2>
+      <h2>Job Experience & Education</h2>
       <RouterLink class="text-link" to="/about">
         Explore about ↗
       </RouterLink>
@@ -43,7 +43,7 @@ const principles = [
   </div>
 
   <section v-reveal class="section container">
-    <h2>Experience through real projects</h2>
+    <h2>Job Experience</h2>
 
     <div
       v-for="(experience, index) in experiences.slice(0, home ? 2 : experiences.length)"

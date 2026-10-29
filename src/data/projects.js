@@ -1,5 +1,5 @@
 export const projects = [
-  { slug: 'subsurface-workspace', name: 'i2g-subsurface-studio', productName: 'i2g-subsurface-studio', projectGroup: 'Job Experience', visual: 'workspace', category: 'Web & desktop application', stack: 'Vue 3 · TypeScript · Theia · Electron · OSDU',
+  { slug: 'subsurface-workspace', name: 'i2g-subsurface-studio', productName: 'i2g-subsurface-studio', projectGroup: 'Professional Projects', visual: 'workspace', category: 'Web & desktop application', stack: 'Vue 3 · TypeScript · Theia · Electron · OSDU',
     company: 'ESS', teamSize: '8 members', focus: 'Application Development & Technical Research',
     summary: 'A desktop application that brings OSDU data exploration, technical documents and subsurface tools into one workspace. My contributions include Vue interface development, API and authentication integration, and document tab workflows. I also research Theia architecture and framework upgrades to assess compatibility and reduce the impact on existing code.',
     contributionSummary: 'Application development · Technical research',
@@ -29,7 +29,7 @@ export const projects = [
     contribution: ['Building Vue interfaces for data and document exploration.', 'Working on preview tabs, persistent tabs and multi-panel document workflows.', 'Integrating APIs and authentication flows with a desktop application.'],
     decision: 'Keep the business interface in Vue and give the workbench a focused responsibility: document tabs, splits and workspace behavior.',
     learning: 'Clear responsibilities between the interface and workbench make the user experience easier to reason about and maintain.' },
-  { slug: 'reservoir-model-viewer', name: 'Reservoir Model Viewer', projectGroup: 'Job Experience', visual: 'reservoir', category: '3D visualization module', stack: 'GRDECL · EGRID · RESQML',
+  { slug: 'reservoir-model-viewer', name: 'Reservoir Model Viewer', projectGroup: 'Professional Projects', visual: 'reservoir', category: '3D visualization module', stack: 'GRDECL · EGRID · RESQML',
     company: 'ESS', teamSize: '8 members', focus: '3D Visualization & Subsurface Data Research',
     summary: 'A viewer for exploring reservoir grids and properties through interactive 3D views and slices. My work covers research into GRDECL, EGRID and RESQML formats, grid visualization, and the presentation of properties such as porosity and permeability. I also investigate spatial alignment for integration with seismic views in i2g-subsurface-studio.',
     keyAreas: 'Reservoir Grids · Property Visualization · Slice Views · Seismic Integration',
