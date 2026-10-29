@@ -25,6 +25,11 @@ defineProps({ project: Object, index: Number })
 </template>
 
 <style scoped>
+.project-card-number,
+.project-card-arrow {
+	color: #fff;
+}
+
 .project-gallery {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));

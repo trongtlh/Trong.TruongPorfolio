@@ -1,13 +1,5 @@
 export const research = [
   {
-    title: 'Oracle & enterprise systems',
-    description:
-      'Experience with Oracle in a previous role, alongside an interest in how enterprise systems support everyday business operations.',
-    tags: 'Oracle · Enterprise systems',
-    notes:
-      'My previous work included Oracle-related systems. This is part of my broader background in enterprise applications and complements my current focus on application development, data integration and user workflows.',
-  },
-  {
     title: 'OSDU & subsurface data integration',
     slug: 'osdu-subsurface-data-integration',
     description:
@@ -41,11 +33,11 @@ export const research = [
       'I have explored reservoir visualization using GRDECL, EGRID and RESQML, including corner-point grids, active cells, property values, legends and slices. For seismic data, I investigate SEG-Y to OpenVDS workflows and inline, crossline, time-slice and volume views. My GIS research covers well, field and block layers, ArcGIS services and offline basemap options.',
   },
   {
-    title: 'Workspace UX & AI integration',
+    title: 'Oracle & enterprise systems',
     description:
-      'Designing clearer interfaces for working with multiple documents, technical views and embedded assistants.',
-    tags: 'UX · Multi-panel layouts · AI integration',
+      'Experience with Oracle in a previous role, alongside an interest in how enterprise systems support everyday business operations.',
+    tags: 'Oracle · Enterprise systems',
     notes:
-      'My work includes refining dashboards, navigation trees, metadata panels, account menus and connection screens. I explore configurable panel layouts, panel swapping and clearer focus states so users can manage several views at once. I also investigate embedded AI assistants, multiple chat sessions and separating conversation history and context by chatbot or workspace.',
+      'My previous work included Oracle-related systems. This is part of my broader background in enterprise applications and complements my current focus on application development, data integration and user workflows.',
   },
 ]
